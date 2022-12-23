@@ -1,0 +1,18 @@
+<section class="greeting container flex">
+  <div class="text flex">
+  <h1> Cash<span>App</span> </h1>
+  <p> Track your spending and save money </p>
+  </div>
+  <div class="content flex">
+    <% if user_signed_in?  %>
+    <span class="link">
+      <%= link_to 'Categories', categories_path, class: "btn" %>
+    </span>
+    <% else %>
+    <div class="btn-group flex">
+      <%= link_to 'Log in', new_user_session_path, class: "btn" %>
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn" %>
+    </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<header class="header flex">
+  <span>back</span>
+  <h2>Register</h2>
+  <span>
+    <%= link_to "Log in", new_session_path(resource_name), class: 'header-action' %>
+  </span>
+</header>
+
+<section class="access flex">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name" %>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, autocomplete: "email", placeholder: "E mail" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Register", class: "submit" %>
+    </div>
+  <% end %>
+</section>

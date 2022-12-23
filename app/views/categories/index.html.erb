@@ -1,0 +1,18 @@
+<%= render 'common/navigation', :title => 'Categories' %>
+<section class="container flex">
+  <ul class="list flex">
+    <% @categories.each do |category| %>
+      <li class="item flex">
+        <img src=<%= category.icon %> alt=<%= category.name %> >
+
+        <div class="item-details flex">
+          <%= link_to category_transactions_path(category_id: category.id), id: "Group-#{category.id}" do %>
+            <h3> <%= category.name %> </h3>
+          <% end %>
+          <p> $<%= category.total_amount %> </p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Add New Category', new_category_path,  class: "btn" %>
+</section>

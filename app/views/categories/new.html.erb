@@ -1,0 +1,18 @@
+<%= render 'common/navigation', :title => 'Categories' %>
+<section class="access flex">
+  <%= form_with model: group, url: categories_url, method: :post do |f| %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, placeholder: 'Name (Minimun 3 characters)' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :icon %>
+      <%= f.text_field :icon, autofocus: true, placeholder: 'Icon (Please add a proper URL)' %>
+    </div>
+
+    <div class="actions mt-5">
+      <%= f.submit "Save", class: "submit" %>
+    </div>
+  <% end %>
+</section>
