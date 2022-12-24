@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
     operation = Operation.new
     id = params[:category_id]
     respond_to do |format|
-      format.html { render :new, locals: { operation:, id: } }
+      format.html { render :new, locals: { operation: operation, id: id } }
     end
   end
 
@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
     name = transaction_params[:name]
     amount = transaction_params[:amount]
     categories = transaction_params[:categories]
-    transaction = Operation.new(name:, amount:)
+    transaction = Operation.new(name: name, amount: amount)
     transaction.user = current_user
     respond_to do |format|
       format.html do
@@ -46,7 +46,7 @@ class TransactionsController < ApplicationController
     if categories.empty?
       @categories = current_user.groups
       flash.now[:alert] = 'Error: Please make sure to fill all fields with the proper input'
-      render :new, status: 422, locals: { operation: transaction, id: }
+      render :new, status: 422, locals: { operation: transaction, id: id }
       return
     end
 
@@ -55,7 +55,7 @@ class TransactionsController < ApplicationController
     # Iterates through the categories and create relationships with the operation
     categories.each_with_index do |category_id, _index|
       group = Group.find(category_id)
-      MoneyGroup.create(group:, operation: transaction)
+      MoneyGroup.create(group: group, operation: transaction)
     end
     flash[:notice] = 'Transaction created successfully'
     redirect_to(category_transactions_path(category_id: first_category_id))

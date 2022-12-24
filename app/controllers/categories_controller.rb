@@ -1,19 +1,18 @@
-# rubocop:disable Metrics/MethodLength
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: :splash
 
   def index
     @categories = current_user.ordered_groups
   end
-# rubocop:disable Metrics/MethodLength
+
   def new
     @category = current_user
     group = Group.new
     respond_to do |format|
-      format.html { render :new, locals: { group: } }
+      format.html { render :new, locals: { group: group } }
     end
   end
-# rubocop:disable Metrics/MethodLength
+
   def create
     category = Group.new(category_params)
     category.user = current_user
@@ -29,9 +28,9 @@ class CategoriesController < ApplicationController
       end
     end
   end
-# rubocop:enable Metrics/MethodLength
+
   private
-# rubocop:disable Metrics/MethodLength
+
   def category_params
     params.require(:group).permit(:name, :icon)
   end
