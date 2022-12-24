@@ -34,5 +34,4 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:group).permit(:name, :icon)
   end
-  # rubocop:enable Metrics/MethodLength
 end
