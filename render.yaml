@@ -15,8 +15,6 @@ services:
         fromDatabase:
           name: Budget_App_production
           property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
 - type: redis
   name: redis
   ipAllowList: []
