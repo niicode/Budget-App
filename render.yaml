@@ -3,7 +3,7 @@ databases:
     databaseName: mysite
     user: mysite
 
-services:
+- services:
   - type: web
     name: rails
     env: ruby
