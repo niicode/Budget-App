@@ -4,7 +4,7 @@ databases:
     user: mysite
     key: DATABASE_URL
 
-- services:
+services:
   - type: web
     name: rails
     env: ruby
