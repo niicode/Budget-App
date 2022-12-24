@@ -1,6 +1,6 @@
 databases:
   - name: postgres
-    databaseName: Budget_App_production
+    databaseName: mysite
     user: mysite
 
 services:
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: Budget_App_production
+          name: mysite
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
