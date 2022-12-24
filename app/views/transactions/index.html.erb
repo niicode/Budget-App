@@ -1,0 +1,16 @@
+<%= render 'common/navigation', :title => 'Transactions' %>
+<section class="container flex">
+  <div class="sum flex">
+      <h3>Total amount:</h3>
+      <span class="amount">$<%= @group.total_amount %></span>
+  </div>
+  <ul class="transactions flex">
+    <% @transactions.each do |transaction| %>
+      <li>
+        <h2> <%= transaction.name %> </h2>
+        <p> $<%= transaction.amount %> </p>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Add a new transaction', new_category_transaction_path(category_id: @group.id),  class: "btn" %>
+</section>
