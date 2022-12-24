@@ -47,11 +47,11 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   cursor: pointer;
-  background-color: #5FB625;
+  background-color: #5fb625;
   align-self: flex-start;
   color: #fff;
   position: fixed;
-  bottom: 0rem;
+  bottom: 0;
   width: 100%;
   margin-left: -16px;
   text-align: center;
